@@ -25,7 +25,6 @@ public class Budget {
         return (spent / limit) * 100.0;
     }
 
-    // draws a simple 20-char bar, e.g. [████████████░░░░░░░░] 60.0%
     public String progressBar(double spent) {
         int filled = (int) Math.min(20, (spent / limit) * 20);
         String bar = "█".repeat(filled) + "░".repeat(20 - filled);
@@ -38,7 +37,6 @@ public class Budget {
         return String.format("[%s] %.1f%%%s", bar, pct, warning);
     }
 
-    // csv format: CATEGORY_NAME,limit
     public String toCsv() {
         return category.name() + "," + String.format("%.2f", limit);
     }
