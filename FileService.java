@@ -11,8 +11,6 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-// handles reading and writing to the data folder
-// keeping it simple - just CSV files, no database needed
 public class FileService {
 
     private static final String DATA_DIR = "data";
@@ -29,7 +27,7 @@ public class FileService {
         List<Transaction> result = new ArrayList<>();
         Path p = Paths.get(TX_FILE);
 
-        if (!Files.exists(p)) return result; // first run, nothing to load
+        if (!Files.exists(p)) return result; 
 
         try (BufferedReader br = new BufferedReader(new FileReader(p.toFile()))) {
             String line;
