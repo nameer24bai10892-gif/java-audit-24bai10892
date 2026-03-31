@@ -6,11 +6,6 @@ Built as my BYOP capstone project for the Programming in Java course.
 
 ---
 
-## Why I built this
-
-I kept trying to track my spending in a spreadsheet and always gave up after a week. Mobile apps are either too complex or need an account. I just wanted something simple I could run in a terminal and actually stick with — so I built it.
-
----
 
 ## Features
 
@@ -154,6 +149,3 @@ data/budgets.csv
 
 ---
 
-## License
-
-MIT
