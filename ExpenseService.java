@@ -22,8 +22,6 @@ public class ExpenseService {
         budgets      = fileService.loadBudgets();
     }
 
-    // -- transaction stuff --
-
     public Transaction addTransaction(Type type, double amount, Category category,
                                       String description, LocalDate date) {
         if (amount <= 0)
@@ -44,7 +42,6 @@ public class ExpenseService {
     }
 
     public List<Transaction> getAllTransactions() {
-        // return newest first
         return transactions.stream()
                 .sorted(Comparator.comparing(Transaction::getDate).reversed())
                 .collect(Collectors.toList());
@@ -72,8 +69,6 @@ public class ExpenseService {
                 .collect(Collectors.toList());
     }
 
-    // -- summary calculations --
-
     public double totalIncome(List<Transaction> list) {
         return list.stream()
                 .filter(t -> t.getType() == Type.INCOME)
@@ -92,7 +87,6 @@ public class ExpenseService {
         return totalIncome(list) - totalExpenses(list);
     }
 
-    // returns expense totals per category, sorted high to low
     public Map<Category, Double> spendingByCategory(List<Transaction> list) {
         Map<Category, Double> temp = new HashMap<>();
 
@@ -100,7 +94,6 @@ public class ExpenseService {
             .filter(t -> t.getType() == Type.EXPENSE)
             .forEach(t -> temp.merge(t.getCategory(), t.getAmount(), Double::sum));
 
-        // sort descending by amount and put in LinkedHashMap to keep order
         return temp.entrySet().stream()
                 .sorted(Map.Entry.<Category, Double>comparingByValue().reversed())
                 .collect(Collectors.toMap(
@@ -111,7 +104,6 @@ public class ExpenseService {
                 ));
     }
 
-    // -- budget stuff --
 
     public void setBudget(Category category, double limit) {
         budgets.put(category, new Budget(category, limit));
