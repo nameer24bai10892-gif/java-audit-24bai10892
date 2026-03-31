@@ -9,8 +9,6 @@ import java.time.Month;
 import java.time.format.DateTimeParseException;
 import java.util.Scanner;
 
-// entry point - handles the menu loop and user input
-// TODO: maybe add color support later using ANSI codes
 public class Main {
 
     static Scanner sc = new Scanner(System.in);
