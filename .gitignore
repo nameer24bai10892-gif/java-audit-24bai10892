@@ -1,16 +1,13 @@
-# compiled output
 out/
 *.class
 
-# data files (personal - don't commit your transactions)
 data/
 
-# IDE stuff
+
 .idea/
 *.iml
 .vscode/
 *.DS_Store
 
-# if you ever add maven/gradle
 target/
 build/
