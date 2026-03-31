@@ -11,7 +11,6 @@ import java.util.List;
 import java.util.Locale;
 import java.util.Map;
 
-// all the printing/formatting lives here so Main.java stays clean
 public class ReportGenerator {
 
     private static final String LINE  = "─".repeat(58);
@@ -56,7 +55,6 @@ public class ReportGenerator {
 
                 System.out.printf("  %-26s ₹%,.2f%n", cat.toString(), spent);
 
-                // show budget bar if one is set for this category
                 service.getBudget(cat).ifPresent(b ->
                     System.out.printf("  %s%n", b.progressBar(spent))
                 );
