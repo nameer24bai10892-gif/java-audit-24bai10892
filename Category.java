@@ -1,7 +1,5 @@
 package model;
 
-// categories for classifying transactions
-// added emoji just for fun, makes the CLI look nicer
 public enum Category {
 
     FOOD("Food & Dining", "🍔"),
