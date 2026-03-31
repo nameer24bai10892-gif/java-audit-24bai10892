@@ -10,7 +10,6 @@ public class Transaction {
         INCOME, EXPENSE
     }
 
-    // using ISO format for dates so it's easy to sort later
     private static final DateTimeFormatter DATE_FMT = DateTimeFormatter.ofPattern("yyyy-MM-dd");
 
     private final String id;
@@ -30,7 +29,6 @@ public class Transaction {
         this.date = date;
     }
 
-    // second constructor for when we load from file (id already exists)
     public Transaction(String id, Type type, double amount, Category category, String description, LocalDate date) {
         this.id = id;
         this.type = type;
@@ -51,7 +49,6 @@ public class Transaction {
         return type == Type.INCOME ? amount : -amount;
     }
 
-    // format: id,type,amount,category,description,date
     public String toCsv() {
         return String.join(",",
                 id,
@@ -64,7 +61,6 @@ public class Transaction {
     }
 
     public static Transaction fromCsv(String line) {
-        // need this regex to handle commas inside quoted description field
         String[] parts = line.split(",(?=(?:[^\"]*\"[^\"]*\")*[^\"]*$)", -1);
 
         String id         = parts[0].trim();
